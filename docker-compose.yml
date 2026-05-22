@@ -1,0 +1,14 @@
+services:
+  yfcdn-control:
+    build: .
+    container_name: yfcdn-control
+    environment:
+      YFCDN_ADDR: ":8080"
+      YFCDN_DATA: "/app/data/yfcdn.json"
+      YFCDN_STATIC: "/app/web"
+      YFCDN_ADMIN_PASSWORD: "admin123"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
